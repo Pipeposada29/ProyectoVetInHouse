@@ -1,0 +1,266 @@
+<form action="" [formGroup]="this.GestionAdministradorService.formularioRegistroAdministrador" (ngSubmit)="onSubmit()">
+    <!--
+<input type="text" name="Nombre" [(ngModel)]="Nombre">
+<br>
+<input type="button" (click)="this.mostrarNombre()" value="Aceptar">
+-->
+    <!--Nombre del Administrador-->
+    <div class="form-group">
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+
+                <div class="input-group-text bg-white">
+
+                    <i class="fa fa-user-circle" [class.blue-icon]="this.GestionAdministradorService.Nombre.valid"
+                        [class.red-icon]="this.GestionAdministradorService.Nombre.invalid && (this.GestionAdministradorService.Nombre.touched || this.GestionAdministradorService.Nombre.dirty)"></i>
+
+                </div>
+            </div>
+            <input type="hidden" name="IdAdministrador" formControlName="IdAdministrador">
+            <input type="hidden" name="Id_Admin" formControlName="Id_Admin">
+            <input name="Nombre" formControlName="Nombre" class="form-control" placeholder="Nombre">
+
+
+        </div>
+        <div *ngIf="this.GestionAdministradorService.Nombre.invalid && (this.GestionAdministradorService.Nombre.touched || this.GestionAdministradorService.Nombre.dirty)" class="alert alert-danger">
+            <div *ngIf="this.GestionAdministradorService.Nombre.hasError('required')">
+                Este es un campo obligatorio
+            </div>
+
+            <div *ngIf="this.GestionAdministradorService.Nombre.hasError('pattern')">
+                El nombre debe contener solo letras
+            </div>
+        </div>
+
+    </div>
+    <!--Apellido-->
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fa fa-user-circle" [class.blue-icon]="this.GestionAdministradorService.Apellido.valid"
+                        [class.red-icon]="this.GestionAdministradorService.Apellido.invalid && (this.GestionAdministradorService.Apellido.touched || this.GestionAdministradorService.Apellido.dirty)"></i>
+                </div>
+            </div>
+            <input name="Apellido" formControlName="Apellido" class="form-control" placeholder="Apellido">
+
+        </div>
+        <div *ngIf="this.GestionAdministradorService.Apellido.invalid && (this.GestionAdministradorService.Apellido.touched || this.GestionAdministradorService.Apellido.dirty)" class="alert alert-danger">
+            <div *ngIf="this.GestionAdministradorService.Apellido.hasError('required')">
+                Este es un campo obligatorio
+            </div>
+            
+            <div *ngIf="this.GestionAdministradorService.Apellido.hasError('pattern')">
+                El apellido debe contener solo letras
+            </div>
+        </div>
+
+
+    </div>
+    <!--Cedula-->
+    <div class="row">
+        <div class="form-group col-md-6">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <i class="fa fa-address-card" [class.blue-icon]="this.GestionAdministradorService.Cedula.valid"
+                            [class.red-icon]="this.GestionAdministradorService.Cedula.invalid && (this.GestionAdministradorService.Cedula.touched || this.GestionAdministradorService.Cedula.dirty)"></i>
+
+                    </div>
+                </div>
+                <input name="Cedula" formControlName="Cedula" class="form-control" placeholder="Cedula">
+
+            </div>
+            <div *ngIf="this.GestionAdministradorService.Cedula.invalid && (this.GestionAdministradorService.Cedula.touched || this.GestionAdministradorService.Cedula.dirty)" class="alert alert-danger">
+                <div *ngIf="this.GestionAdministradorService.Cedula.hasError('required')">
+                    Este es un campo obligatorio
+                </div>
+                
+            <div *ngIf="this.GestionAdministradorService.Cedula.hasError('pattern')">
+                La cedula solo debe tener numeros
+            </div>
+            </div>
+
+
+        </div>
+        <!--Celular-->
+
+        <div class="form-group col-md-6">
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+
+                    <div class="input-group-text bg-white">
+
+                        <i class="fa fa-phone" [class.blue-icon]="this.GestionAdministradorService.Telefono.valid"
+                            [class.red-icon]="this.GestionAdministradorService.Telefono.invalid && (this.GestionAdministradorService.Telefono.touched || this.GestionAdministradorService.Telefono.dirty)"></i>
+
+                    </div>
+                </div>
+
+                <input name="Telefono" formControlName="Telefono" class="form-control" placeholder="Telefono">
+
+
+            </div>
+            <div *ngIf="this.GestionAdministradorService.Telefono.invalid && (this.GestionAdministradorService.Telefono.touched || this.GestionAdministradorService.Telefono.dirty)" class="alert alert-danger">
+                <div *ngIf="this.GestionAdministradorService.Telefono.hasError('required')">
+                    Este es un campo obligatorio
+                </div>
+                
+            <div *ngIf="this.GestionAdministradorService.Telefono.hasError('pattern')">
+                El telefono solo debe contener Numeros
+            </div>
+            <div *ngIf="this.GestionAdministradorService.Telefono.hasError('minlength')">
+                El telefono debe contener minimo 7 numeros
+            </div>
+            <div *ngIf="this.GestionAdministradorService.Telefono.hasError('maxlength')">
+                El telefono debe contener maximo 15 numeros
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!--Direccion del Administrador-->
+
+    <div class="form-group">
+
+        <div class="input-group">
+
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+
+                    <i class="fa fa-home" [class.blue-icon]="this.GestionAdministradorService.Direccion.valid"
+                        [class.red-icon]="this.GestionAdministradorService.Direccion.invalid && (this.GestionAdministradorService.Direccion.touched || this.GestionAdministradorService.Direccion.dirty)"></i>
+                </div>
+
+            </div>
+            <input name="Direccion" formControlName="Direccion" class="form-control" placeholder="Direccion">
+
+
+        </div>
+        <div *ngIf="this.GestionAdministradorService.Direccion.invalid && (this.GestionAdministradorService.Direccion.touched || this.GestionAdministradorService.Direccion.dirty)" class="alert alert-danger">
+            <div *ngIf="this.GestionAdministradorService.Direccion.hasError('required')">
+                Este es un campo obligatorio
+            </div>
+            <div *ngIf="this.GestionAdministradorService.Direccion.hasError('maxlength')">
+                La dirección debe tener maximo 80 caracteres
+            </div>
+        </div>
+
+    </div>
+    <!--Correo electrónico-->
+
+    <div class="form-group">
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+
+                    <i class="fa fa-at" [class.blue-icon]="this.GestionAdministradorService.Email.valid"
+                        [class.red-icon]="this.GestionAdministradorService.Email.invalid && (this.GestionAdministradorService.Email.touched || this.GestionAdministradorService.Email.dirty)"></i>
+
+                </div>
+            </div>
+
+            <input name="Email" formControlName="Email" class="form-control" placeholder="Correo electrónico">
+
+
+        </div>
+        <div *ngIf="this.GestionAdministradorService.Email.invalid && (this.GestionAdministradorService.Email.touched || this.GestionAdministradorService.Email.dirty)" class="alert alert-danger">
+            <div *ngIf="this.GestionAdministradorService.Email.hasError('required')">
+                Este es un campo obligatorio
+            </div>
+            <div *ngIf="this.GestionAdministradorService.Email.hasError('pattern')">
+               Verifique que este bien ingresado el correo electrónico
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!--Fecha de Cumpleaños-->
+
+    <div class="form-group">
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+
+                    <i class="fa fa-calendar" [class.blue-icon]="this.GestionAdministradorService.Cumpleanos.valid"
+                        [class.red-icon]="this.GestionAdministradorService.Cumpleanos.invalid && (this.GestionAdministradorService.Cumpleanos.touched || this.GestionAdministradorService.Cumpleanos.dirty)"></i>
+
+                </div>
+            </div>
+            <input type="date" name="Cumpleanos" formControlName="Cumpleanos" class="form-control"
+                placeholder="Fecha de nacimiento">
+
+
+        </div>
+        <div *ngIf="this.GestionAdministradorService.Cumpleanos.invalid && (this.GestionAdministradorService.Cumpleanos.touched || this.GestionAdministradorService.Cumpleanos.dirty)" class="alert alert-danger">
+            <div *ngIf="this.GestionAdministradorService.Cumpleanos.hasError('required')">
+                Este es un campo obligatorio
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--Usuario-->
+
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fa fa-user-circle" [class.blue-icon]="this.GestionAdministradorService.Usuario.valid"
+                        [class.red-icon]="this.GestionAdministradorService.Usuario.invalid && (this.GestionAdministradorService.Usuario.touched || this.GestionAdministradorService.Usuario.dirty)"></i>
+                </div>
+            </div>
+            <input name="Usuario" formControlName="Usuario" class="form-control" placeholder="Usuario">
+
+        </div>
+        <div *ngIf="this.GestionAdministradorService.Usuario.invalid && (this.GestionAdministradorService.Usuario.touched || this.GestionAdministradorService.Usuario.dirty)" class="alert alert-danger">
+            <div *ngIf="this.GestionAdministradorService.Usuario.hasError('required')">
+                Este es un campo obligatorio
+            </div>
+        </div>
+    </div>
+
+    <!--Contraseña-->
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fa fa-unlock-alt" [class.blue-icon]="this.GestionAdministradorService.Contrasena.valid"
+                        [class.red-icon]="this.GestionAdministradorService.Contrasena.invalid && (this.GestionAdministradorService.Contrasena.touched || this.GestionAdministradorService.Contrasena.dirty)"></i>
+                </div>
+            </div>
+            <input type="password" name="Contrasena" formControlName="Contrasena" class="form-control"
+                placeholder="Contrasena">
+
+        </div>
+        <div *ngIf="this.GestionAdministradorService.Contrasena.invalid && (this.GestionAdministradorService.Contrasena.touched || this.GestionAdministradorService.Contrasena.dirty)" class="alert alert-danger">
+            <div *ngIf="this.GestionAdministradorService.Contrasena.hasError('required')">
+                Este es un campo obligatorio
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg btn-block"
+            [disabled]="this.GestionAdministradorService.formularioRegistroAdministrador.invalid"><i
+                class="fa fa-save"></i> Aceptar</button>
+    </div>
+
+
+</form>

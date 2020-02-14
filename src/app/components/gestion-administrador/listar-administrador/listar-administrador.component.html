@@ -1,0 +1,59 @@
+<form >
+
+<div class="form-group">
+    <div class="input-group">
+        <div class="input-group-text bg-white">
+            <i class="fa fa-search"></i>
+        </div>
+        <input type="text" name="filtrar" class="form-control" placeholder="Buscar" [(ngModel)]="GestionAdministradorService.filtroAdministrador" >
+    </div>
+</div>
+
+
+</form>
+
+
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+           
+            <th scope="col">Nombre </th>
+            <th scope="col">Apellido </th>
+            <th scope="col">Telefono </th>
+            <th scope="col">Email </th>
+            <th scope="col">Cedula </th>
+            <th scope="col">Direccion </th>
+            <th scope="col">Usuario </th>
+            <th scope="col">Contraseña </th>
+         
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let administrador of GestionAdministradorService.listaAdministrador|filtroAdministrador:'nombre':GestionAdministradorService.filtroAdministrador">
+            
+            
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.nombre}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.apellido}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.telefono}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.email}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.cedula}}</td>
+            
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.direccion}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.usuario}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.contrasena}}</td>
+            <td><i (click)="eliminarAdministrador(administrador.Id_Admin)" class="fa fa-trash fa-lg text-danger"></i></td>
+            
+            
+
+       <script>
+      
+       </script>
+        </tr>
+    </tbody>
+
+
+
+
+</table>
