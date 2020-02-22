@@ -7,11 +7,19 @@ import { RegistrarAdministradorComponent } from './components/gestion-administra
 import { ListarAdministradorComponent } from './components/gestion-administrador/listar-administrador/listar-administrador.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import { GestionAdministradorService } from './services/gestion-administrador.service';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import{ToastrModule} from 'ngx-toastr';
 import { FiltroAdministradorPipe } from './pipes/filtro-administrador.pipe'
 import { ConfiguracionService } from './services/configuracion.service';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { LoginComponent } from './components/usuario/login/login.component';
+import { RegistrousuarioComponent } from './components/usuario/registrousuario/registrousuario.component';
+import { Routes, RouterModule, Router} from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './components/home/home.component';
+import { AuthComponent } from './components/auth/auth/auth.component';
+import { AuthInterceptor } from './components/auth/auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -19,19 +27,31 @@ import { ConfiguracionService } from './services/configuracion.service';
     GestionAdministradorComponent,
     RegistrarAdministradorComponent,
     ListarAdministradorComponent,
-    FiltroAdministradorPipe
+    FiltroAdministradorPipe,
+    UsuarioComponent,
+    LoginComponent,
+    RegistrousuarioComponent,
+    HomeComponent,
+    AuthComponent,
+    
   ],
   imports: [
-    BrowserModule, // falta importar AppRoutingModule
+    BrowserModule, 
+    AppRoutingModule,// falta importar AppRoutingModule
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
-
+    ToastrModule.forRoot(),
+    RouterModule,
 
   ],
-  providers: [GestionAdministradorService, ConfiguracionService],
+  providers: [GestionAdministradorService, ConfiguracionService, UsuarioComponent ,{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

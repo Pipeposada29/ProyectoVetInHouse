@@ -19,16 +19,17 @@ export class ListarAdministradorComponent implements OnInit {
   }
 
   llenarFormularioAdministrador(administrador: Administrador) {
+
     console.log("Listar", administrador);
-    administrador.Nombre = administrador.nombre;
-    administrador.Apellido = administrador.apellido;
-    administrador.Cedula = administrador.cedula;
-    administrador.Telefono = administrador.telefono;
-    administrador.Direccion = administrador.direccion;
-    administrador.Usuario = administrador.usuario;
-    administrador.Email = administrador.email;
-    administrador.Contrasena = administrador.contrasena;
-    administrador.Id_Admin = administrador.id_Admin;
+      // administrador.Nombre = administrador.nombre;
+      // administrador.Apellido = administrador.apellido;
+      // administrador.Cedula = administrador.cedula;
+      // administrador.Telefono = administrador.telefono;
+      // administrador.Direccion = administrador.direccion;
+      // administrador.Usuario = administrador.usuario;
+      // administrador.Email = administrador.email;
+      // administrador.Contrasena = administrador.contrasena;
+      // administrador.Id_Admin = administrador.id_Admin;
     this.GestionAdministradorService.formularioRegistroAdministrador.patchValue(
       administrador
     );

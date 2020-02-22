@@ -31,18 +31,18 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let administrador of GestionAdministradorService.listaAdministrador|filtroAdministrador:'nombre':GestionAdministradorService.filtroAdministrador">
+        <tr *ngFor="let administrador of GestionAdministradorService.listaAdministrador| filtroAdministrador:'Nombre':GestionAdministradorService.filtroAdministrador">
             
             
-            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.nombre}}</td>
-            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.apellido}}</td>
-            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.telefono}}</td>
-            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.email}}</td>
-            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.cedula}}</td>
-            
-            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.direccion}}</td>
-            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.usuario}}</td>
-            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.contrasena}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Nombre}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Apellido}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Telefono}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Email}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Cedula}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Cumpleanos}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Direccion}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Usuario}}</td>
+            <td (click)="llenarFormularioAdministrador(administrador)">{{administrador.Contrasena}}</td>
             <td><i (click)="eliminarAdministrador(administrador.Id_Admin)" class="fa fa-trash fa-lg text-danger"></i></td>
             
             
